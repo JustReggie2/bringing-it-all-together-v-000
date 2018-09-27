@@ -19,5 +19,7 @@ class Dog
         breed TEXT
       )
     SQL
+
+    DB[:conn].execute(sql)
   end
 end
