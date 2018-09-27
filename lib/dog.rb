@@ -5,7 +5,7 @@ class Dog
   attr_accessor :name, :breed
   attr_reader :id
 
-  def initialize(name:, breed:, id: nil)
+  def initialize(id: nil, name:, breed:)
     @name = name
     @breed = breed
     @id = id
@@ -28,6 +28,15 @@ class Dog
 
     DB[:conn].execute(sql)
   end
+
+  def self.new_from_db(row)
+    dog = Dog.new(row[0], row[1], row[2])
+    dog
+  end
+
+  # def save
+  #   if self.id
+
 
 
 
