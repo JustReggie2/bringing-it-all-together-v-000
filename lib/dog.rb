@@ -73,7 +73,8 @@ class Dog
   end
 
   def self.create(dog_hash)
-    dog = dog_hash.each {|k, v| self.send(("#{k}="), v)}
+    dog = Dog.new(dog_hash)
+    dog_hash.each {|k, v| self.send(("#{k}="), v)}
     dog.save
     dog
   end
