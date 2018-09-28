@@ -82,11 +82,11 @@ class Dog
   def find_by_id(id)
     sql = <<-SQL
       SELECT * FROM dogs
-      WHERE id = ?
+      WHERE id = ?;
     SQL
 
     result = DB[:conn].execute(sql, id)
-    new_from_db(result)[0]
+    new_from_db(result[0])
   end
 
 
